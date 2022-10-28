@@ -14,161 +14,47 @@
 
 @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
 
-*{
-    margin: 0px;
-    padding: 0px;
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
 }
 
-body{
-    font-family: 'Exo', sans-serif;
+body {
+  font-family: 'Poppins', sans-serif;
 }
 
-
-.context {
-    width: 100%;
-    position: absolute;
-    top:15vh;
-    
-}
-
-.context h1{
-    text-align: center;
-    color: #fff;
-    font-size: 50px;
-}
-
-
-.area{
-    background: #4e54c8;  
-    background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
-    width: 100%;
-    height:100vh;
-    
-   
-}
-
-.circles{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.circles li{
-    position: absolute;
-    display: block;
-    list-style: none;
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    animation: animate 25s linear infinite;
-    bottom: -150px;
-    
-}
-
-.circles li:nth-child(1){
-    left: 25%;
-    width: 80px;
-    height: 80px;
-    animation-delay: 0s;
+section{
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(-45deg, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);;
+  background-size: 400% 400%;
+  position: relative;
+  animation: animate 7.5s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
-.circles li:nth-child(2){
-    left: 10%;
-    width: 20px;
-    height: 20px;
-    animation-delay: 2s;
-    animation-duration: 12s;
+@keyframes animate{
+  0%{
+    background-position: 0 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0 50%;
+  }
 }
-
-.circles li:nth-child(3){
-    left: 70%;
-    width: 20px;
-    height: 20px;
-    animation-delay: 4s;
-}
-
-.circles li:nth-child(4){
-    left: 40%;
-    width: 60px;
-    height: 60px;
-    animation-delay: 0s;
-    animation-duration: 18s;
-}
-
-.circles li:nth-child(5){
-    left: 65%;
-    width: 20px;
-    height: 20px;
-    animation-delay: 0s;
-}
-
-.circles li:nth-child(6){
-    left: 75%;
-    width: 110px;
-    height: 110px;
-    animation-delay: 3s;
-}
-
-.circles li:nth-child(7){
-    left: 35%;
-    width: 150px;
-    height: 150px;
-    animation-delay: 7s;
-}
-
-.circles li:nth-child(8){
-    left: 50%;
-    width: 25px;
-    height: 25px;
-    animation-delay: 15s;
-    animation-duration: 45s;
-}
-
-.circles li:nth-child(9){
-    left: 20%;
-    width: 15px;
-    height: 15px;
-    animation-delay: 2s;
-    animation-duration: 35s;
-}
-
-.circles li:nth-child(10){
-    left: 85%;
-    width: 150px;
-    height: 150px;
-    animation-delay: 0s;
-    animation-duration: 11s;
-}
-
-
-
-@keyframes animate {
-
-    0%{
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-        border-radius: 0;
-    }
-
-    100%{
-        transform: translateY(-1000px) rotate(720deg);
-        opacity: 0;
-        border-radius: 50%;
-    }
-
-}
-
 
 .container {
     display: flex;
     flex-direction: row;
     align-content: center;
     align-items: center;
-    margin-left:85vh;
+    margin-left:1vh;
 }
 
 
@@ -178,6 +64,7 @@ body{
     justify-content: center;
     align-items: center;
     margin: 2rem;
+    text-decoration:none;
 
     width: 2rem;
     height: 1rem;
@@ -191,23 +78,6 @@ body{
 
 }
 
-.bttn-one:hover {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.75rem;
-    line-height: 2.5rem;
-    padding: 0;
-    width: 0;
-    height: 0;
-
-    display: flex;
-    align-items: center;
-    text-align: center;
-    text-decoration: none;
-    color: #FDB0FF;
-    text-shadow: 0px 3px 15px #FB4EFF;
-
-}
 
 
 
@@ -217,6 +87,7 @@ body{
     justify-content: center;
     align-items: center;
     margin: 2rem;
+	text-decoration:none;
 
     width: 2rem;
     height: 1rem;
@@ -230,36 +101,19 @@ body{
 
 }
 
-.bttn-two:hover {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 2rem;
-    line-height: 2.5rem;
-    text-decoration: none;
-    padding: 0;
-    width: 0;
-    height: 0;
-
-    align-items: center;
-    text-align: center;
-
-    color: #B0FFF1;
-
-    text-shadow: 0px 3px 15px #00FFD1;
-
-}
-
-
 
 
 </style>
 
 </head>
 <body>
-
+<form>
+<section>
 <div class="context">
 <script src="https://cdn.lordicon.com/pzdvqjsp.js"></script>
 <center>
+
+
 <lord-icon
     src="https://cdn.lordicon.com/dqxvvqzi.json"
     trigger="loop"
@@ -269,36 +123,31 @@ body{
 </lord-icon>
 </center>
 
-
-
-
-  <div class="container">
-    <button type="button" class="bttn-one" onClick="tClick()">Transaction</button>
-    <button type="button" class="bttn-two">@@@</button>
-    
-    
+<div class="container">
+    <button type="button" class="bttn-one"><a href="transaction.jsp" class="bttn-one">Transaction</a></button>
+    <button type="button" class="bttn-two"><a href="profile.jsp" class="bttn-two">Profile</a></button>
+<script src="https://cdn.lordicon.com/qjzruarw.js"></script>
+<a href="transactionhistory.jsp">
+<lord-icon
+    src="https://cdn.lordicon.com/pqxdilfs.json"
+    trigger="loop"
+    delay="1000"
+    style="width:90px;height:90px">
+</lord-icon>
+</a>
   </div>
+
 
 
 </div>
 
 
-<div class="area" >
+</section>
 
-            <ul class="circles">
-            	<li></li>
-            	<li></li>
-            	<li></li>
-            	<li></li>
-            	<li></li>
-            	<li></li>
-            	<li></li>
-            	<li></li>
-            	<li></li>
-            	<li></li>
-            	<li></li>
-            </ul>
-    </div >
+
+
+
+    </form>
 </body>
 
 
