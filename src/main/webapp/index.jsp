@@ -20,6 +20,15 @@
 	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>home page</title>
+    
+<style>
+.btn btn-primary{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+</style>
+    
   </head>
   <body>
 	<nav class="navbar navbar-light bg-secondary" >
@@ -40,7 +49,7 @@
 	</nav>
 	
 	<!-- Sign in Modal Design -->
-	<form name="f1" id="f1" method="post" action="dashboard.jsp">
+	<form name="f1" id="f1" method="post" action="checkuser.jsp">
 	<div class="bs-example">
 	    <div id="myModal" class="modal fade" tabindex="-1">
 	        <div class="modal-dialog">
@@ -84,9 +93,11 @@
 	                                <input type="text" class="form-control" value="<%=x%>" disabled>
 	                            </div>
 	                        </div>
+	                        <input type="hidden" name="cap" id="cap" value="<%=x%>">
+	 
 	                        <div class="col-6">
 	                        <div class="mb-3">
-	                                <input type="text" class="form-control" >
+	                                <input type="text" class="form-control" onkeyup="checkCap(this.value)">
 	                        </div>
 	                        </div>
 	                    </div>
@@ -96,7 +107,7 @@
 	                </div>
 	                <div class="modal-footer">
 	                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-	                    <button type="submit" class="btn btn-primary">Sign in</button>
+	                    <button type="submit" class="btn btn-primary style1" id="signin">Sign in</button>
 	                </div>
 	            </div>
 	        </div>
@@ -191,7 +202,24 @@
 	<script>
 		$(document).ready(function(){
 			$('#myModal').modal('show');
+			$("#signin").prop('disabled',true)
 		})
+		function checkCap(v)
+		{
+			
+			var x=$("#cap").val()
+			x=parseInt(x)
+			if(v.length==4)
+				{
+					if(v==x)
+						{
+						$("#signin").prop('disabled',false)
+						}
+					else{
+						alert("No")
+					}
+				}
+		}
 	</script>
   </body>
 </html>

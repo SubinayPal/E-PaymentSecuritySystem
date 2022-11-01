@@ -108,5 +108,29 @@ public class Connect {
 		return arr;
 	}
 	
+	
+	
+	public UserInfo getRecord(String uid) {
+		
+		UserInfo obj=new UserInfo();
+		try {
+			String sql = "select * from tbl_newuser where uid=?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, uid);
+			rs=ps.executeQuery();
+			if(rs.next())
+			{
+				obj.setUname(rs.getString(1));
+				obj.setEmail(rs.getString(2));
+				obj.setContact(rs.getString(3));
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return obj;
+	}
+	
+	
 
 }

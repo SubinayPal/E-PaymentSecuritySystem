@@ -1,32 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"    
 %>
-<%@ page import="p1.Connect" %>
-    
-    
-    
-<%
-	Connect c1 = new Connect();
-	//String name=request.getParameter("name");
-	//String email=request.getParameter("email");
-	//String contact=request.getParameter("contact");
-	String uid = request.getParameter("uid");
-	String pwd = request.getParameter("pwd");
-	
-	boolean b = c1.checkRecord(uid,pwd);
-	//System.out.println(b);
-%>
 
-<%=uid %>
-<%=pwd %>
 
-<%
-	if(b==true){
-		response.sendRedirect("userDashboard.jsp");
-		
-	}
-	
-%>
+
 
 <!DOCTYPE html>
 <html>
