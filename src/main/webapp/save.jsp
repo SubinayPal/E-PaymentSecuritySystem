@@ -12,7 +12,7 @@
 	boolean b=c1.saveRecord(name,email,contact,uid,pwd);
 	
 %>
-<%=b%>
+
 
 <html>
   <head>

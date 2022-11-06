@@ -63,6 +63,14 @@ h1{
   }
 }
 
+table{
+	border: 2px solid black;
+	background-color: white;
+	width: 75%;
+	
+}
+
+
 </style>
 
 
@@ -71,7 +79,7 @@ h1{
 
 <section>
 
-<table border="1" cellspacing="0" cellpadding="10" align="center">
+<table>
 	<tr>
 	<th>Transaction Id</th>
 	<th>Account Number</th>

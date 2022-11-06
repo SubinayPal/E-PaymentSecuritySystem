@@ -114,21 +114,47 @@ public class Connect {
 		
 		UserInfo obj=new UserInfo();
 		try {
-			String sql = "select * from tbl_newuser where uid=?";
+			String sql = "select t1.name, t1.email, t1.contact, t2.accno from tbl_newuser t1, tbl_user_info t2 where t1.uid=? and t1.uid=t2.uid";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, uid);
 			rs=ps.executeQuery();
 			if(rs.next())
 			{
+				System.out.println(rs.getString(1));
 				obj.setUname(rs.getString(1));
 				obj.setEmail(rs.getString(2));
 				obj.setContact(rs.getString(3));
+				obj.setAccno(rs.getString(4));
 			}
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		return obj;
+	}
+	
+	
+	public boolean saveDetails(String accno, String cno, String ifsc, String uid)
+	{
+		boolean b = false;
+		try {
+			String sql = "insert into tbl_user_info(accno,cno,ifsc,uid) values(?,?,?,?)";
+			ps=con.prepareStatement(sql);
+			ps.setString(1, accno);
+			ps.setString(2, cno);
+			ps.setString(3, ifsc);
+			ps.setString(4, uid);
+			
+			
+			int n = ps.executeUpdate();
+			if(n>0)
+				b=true;
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return b;
+		
 	}
 	
 	

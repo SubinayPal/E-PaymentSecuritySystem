@@ -85,6 +85,7 @@ body {
   cursor:pointer;
   text-decoration:none;
   font-weight:bold;
+  margin-left: 50vh;
 }
 .ccbtn:hover{
   background:#d8850e;
@@ -117,18 +118,22 @@ text-decoration: none;
 </header>
 
 <div class="wrapper">
-    <form method="post" action="" class="ccform">
+    <form method="post" action="saveEdit.jsp" class="ccform">
     <div class="ccfield-prepend">
-        <span class="ccform-addon"></span>
-        <input class="ccformfield" type="text" placeholder="Account Number" required>
+        <span class="ccform-addon" ></span>
+        <input class="ccformfield" type="text" placeholder="Account Number" name="accno" required>
     </div>
     <div class="ccfield-prepend">
-        <span class="ccform-addon"></span>
-        <input class="ccformfield" type="text" placeholder="Card Number" required>
+        <span class="ccform-addon" ></span>
+        <input class="ccformfield" type="text" placeholder="Card Number" name="cno" required>
     </div>
     <div class="ccfield-prepend">
-        <span class="ccform-addon"></span>
-        <input class="ccformfield" type="text" placeholder="IFSC Code">
+        <span class="ccform-addon"  ></span>
+        <input class="ccformfield" type="text" placeholder="IFSC Code" name="ifsc" required>
+    </div>
+    <div class="ccfield-prepend">
+        <span class="ccform-addon"  ></span>
+        <input class="ccformfield" type="text" placeholder="User Id" name="uid" required>
     </div>
     
     <!-- 
@@ -149,7 +154,7 @@ text-decoration: none;
      -->
     
     <div class="ccfield-prepend">
-        <input class="ccbtn" type="submit" value="Submit">
+        <input class="ccbtn" type="submit" value="Save">
     </div>
     
     

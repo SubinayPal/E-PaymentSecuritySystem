@@ -2,7 +2,7 @@
 <%@ page import="java.util.Random" %>
 <%
 	Random r = new Random();
-	int x = Math.abs(r.nextInt()*98585545%10000);
+	int x = Math.abs(r.nextInt()*98588845%10000);
 	System.out.println(x);
 %>
 <!DOCTYPE html>

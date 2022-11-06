@@ -11,6 +11,7 @@
 	String uname = uinfo.getUname();
 	String email = uinfo.getEmail();
 	String phno = uinfo.getContact();
+	String accno = uinfo.getAccno();
 %>
     
     
@@ -445,7 +446,7 @@ img {
       <div class="card__image card__image--fence"></div>
       <div class="card__content">
         <div class="card__title">Name Of The User : <%=uname %></div>
-        <p class="card__text">Account Number :  @@@@@@@@@@@</p>
+        <p class="card__text">Account Number :  <%=accno %></p>
         <p class="card__text">Phone Number :  <%=phno %></p>
         <p class="card__text">Email :  <%=email %></p>
         <!-- <button class="btn btn--block card__btn">Button</button> -->

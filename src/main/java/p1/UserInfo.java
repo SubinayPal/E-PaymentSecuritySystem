@@ -6,6 +6,7 @@ public class UserInfo {
 	private String email;
 	private String contact;
 	private String uid;
+	private String accno;
 	
 	public UserInfo(){
 		
@@ -41,6 +42,14 @@ public class UserInfo {
 
 	public void setUid(String uid) {
 		this.uid = uid;
+	}
+
+	public String getAccno() {
+		return accno;
+	}
+
+	public void setAccno(String accno) {
+		this.accno = accno;
 	}
 	
 		
