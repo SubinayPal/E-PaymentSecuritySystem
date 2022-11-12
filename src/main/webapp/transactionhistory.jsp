@@ -6,7 +6,9 @@
 <%
 	Connect c1=new Connect();
 	ArrayList arr = c1.getReciverData();
-	RSA rsa = new RSA();
+	//RSA rsa = new RSA();
+	AES_ENCRYPTION aes = new AES_ENCRYPTION();
+	aes.init();
 %>    
     
     
@@ -97,8 +99,9 @@ table{
 			try{
 			obj=(ReceiverInfo)arr.get(i);
 			accno=obj.getAccountnumber();
-			accno=rsa.decrypt(accno);
-			out.println(accno);	
+			//accno=rsa.decrypt(accno);
+			accno = aes.decrypt(accno);
+			System.out.println(accno);	
 			}catch(Exception e)
 			{
 				e.printStackTrace();
@@ -108,6 +111,11 @@ table{
 		<tr>
 		<td><%=obj.getTid()%></td>
 		<td><%=accno %></td>
+		<td><%=obj.getHname() %></td>
+		<td><%=obj.getPhonenumber() %></td>
+		<td><%=obj.getEmail() %></td>
+		<td><%=obj.getDate() %></td>
+		<td><%=obj.getAmount() %></td>
 		</tr>
 	<%
 		}
