@@ -7,12 +7,14 @@
 	Connect c1=new Connect();
 	//RSA rsa = new RSA();
 	AES_ENCRYPTION aes = new AES_ENCRYPTION();
-	aes.init();
+	/*aes.init();*/
 	String tid=request.getParameter("tid");
 	
 	//String accountnumber=rsa.encrypt(request.getParameter("accountnumber"));
 	String accountnumber=aes.encrypt(request.getParameter("accountnumber"));
-	
+	//System.out.println(accountnumber);
+	//String decAcc = aes.decrypt(accountnumber);
+	//System.out.println("decrypted acc no = "+decAcc);
 	String hname=request.getParameter("hname");
 	
 	//String phonenumber=rsa.encrypt(request.getParameter("phonenumber"));
@@ -24,6 +26,8 @@
 	String date=request.getParameter("date");
 	String amount=request.getParameter("amount");
 	
+	/*String key = aes.getKey();
+	boolean b=c1.saveReceiverRecord(tid, accountnumber, hname, phonenumber, email, date, amount, key);*/
 	boolean b=c1.saveReceiverRecord(tid, accountnumber, hname, phonenumber, email, date, amount);
 	
 	

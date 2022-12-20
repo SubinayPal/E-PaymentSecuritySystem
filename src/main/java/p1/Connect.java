@@ -61,7 +61,11 @@ public class Connect {
 	{
 		boolean b = false;
 		try {
+			//System.out.println("key="+key);
+			
+			/*String sql = "insert into tbl_receiver_info(tid, accountnumber, hname, phonenumber, email, date, amount, skey) values(?,?,?,?,?,?,?,?)";*/
 			String sql = "insert into tbl_receiver_info(tid, accountnumber, hname, phonenumber, email, date, amount) values(?,?,?,?,?,?,?)";
+			//String sql = "insert into tbl_receiver_info(skey,tid) values(?,?)";
 			ps=con.prepareStatement(sql);
 			ps.setString(1, tid);
 			ps.setString(2, accountnumber);
@@ -70,6 +74,7 @@ public class Connect {
 			ps.setString(5, email);
 			ps.setString(6, date);
 			ps.setString(7, amount);
+			//ps.setString(8, key);
 			
 			int n = ps.executeUpdate();
 			if(n>0)
@@ -154,6 +159,50 @@ public class Connect {
 			e.printStackTrace();
 		}
 		return b;
+		
+	}
+	
+	
+	public boolean updateDetails(String accno, String cno, String ifsc, String uid)
+	{
+		boolean b = false;
+		try {
+			String sql = "update tbl_user_info set accno=?, cno=?, ifsc=? where uid=?";
+			ps=con.prepareStatement(sql);
+			ps.setString(1, accno);
+			ps.setString(2, cno);
+			ps.setString(3, ifsc);
+			ps.setString(4, uid);
+			
+			
+			int n = ps.executeUpdate();
+			if(n>0)
+				b=true;
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return b;
+		
+	}
+	public String getKeyDB(String tid) 
+	{
+		String key=null;
+		String sql = "select skey from tbl_receiver_info where tid=?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, tid);
+			rs=ps.executeQuery();
+			if(rs.next())
+			{
+				key=rs.getString(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return key;
+		
 		
 	}
 	

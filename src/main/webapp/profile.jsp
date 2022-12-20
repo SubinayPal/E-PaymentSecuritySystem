@@ -408,7 +408,8 @@ img {
     <div class="wrapper">
       <ul>
 <li><a href="editProfile.jsp">Edit</a></li>
-<li><a href="#">Transaction</a></li>
+<li><a href="updateProfile.jsp">Update</a></li>
+<li><a href="transaction.jsp">Transaction</a></li>
 <li><a href="#">Contact Us</a></li>
 <li><a href="#"></a></li>
 <li><a href="#">Feedback</a></li>

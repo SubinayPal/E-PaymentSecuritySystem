@@ -3,12 +3,17 @@
     
 <%@ page import="p1.*" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="javax.crypto.*" %>
 <%
 	Connect c1=new Connect();
 	ArrayList arr = c1.getReciverData();
 	//RSA rsa = new RSA();
 	AES_ENCRYPTION aes = new AES_ENCRYPTION();
-	aes.init();
+	//aes.init();
+	
+	
+	
+	
 %>    
     
     
@@ -90,18 +95,40 @@ table{
 	<th>Email</th>
 	<th>Date</th>
 	<th>Amount</th>
+	
+	
 	</tr>
 	<%
+		
 		for(int i=0;i<arr.size();i++)
 		{
-			ReceiverInfo obj=null;
-			String accno=null;
+			ReceiverInfo obj = null;
+			String accno = null;
+			String hname=null;
+			String phonenumber=null;
+			String email= null;
+			
+			/* String key = null;
+			SecretKey okey = null; */
+			
 			try{
-			obj=(ReceiverInfo)arr.get(i);
-			accno=obj.getAccountnumber();
+			obj = (ReceiverInfo)arr.get(i);
+			accno = obj.getAccountnumber();
+			phonenumber = obj.getPhonenumber();
+			email = obj.getEmail();
+			//System.out.println(accno);
+			
+			/*key = c1.getKeyDB(obj.getTid());*/
+			
+			//aes.setKey(key);
+			 
+			//System.out.println("In transaction history = "+key);
+			
 			//accno=rsa.decrypt(accno);
-			accno = aes.decrypt(accno);
-			System.out.println(accno);	
+			 accno = aes.decrypt(accno);
+			 phonenumber = aes.decrypt(phonenumber);
+			 email = aes.decrypt(email);
+			//System.out.println(accno);	
 			}catch(Exception e)
 			{
 				e.printStackTrace();
@@ -112,10 +139,12 @@ table{
 		<td><%=obj.getTid()%></td>
 		<td><%=accno %></td>
 		<td><%=obj.getHname() %></td>
-		<td><%=obj.getPhonenumber() %></td>
-		<td><%=obj.getEmail() %></td>
+		<td><%=phonenumber %></td>
+		<td><%=email %></td>
 		<td><%=obj.getDate() %></td>
 		<td><%=obj.getAmount() %></td>
+		
+		
 		</tr>
 	<%
 		}

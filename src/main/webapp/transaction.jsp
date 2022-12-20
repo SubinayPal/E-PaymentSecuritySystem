@@ -4,7 +4,7 @@
 <%@ page import="java.sql.Timestamp" import="java.time.Instant" %>
 <% Timestamp ts1 = Timestamp.from(Instant.now());  
    
-   System.out.println("Timestamp : "+ts1);
+   //System.out.println("Timestamp : "+ts1);
 %>   
 
 
