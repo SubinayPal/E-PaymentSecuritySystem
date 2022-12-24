@@ -6,7 +6,13 @@
 <%@ page import="javax.crypto.*" %>
 <%
 	Connect c1=new Connect();
-	ArrayList arr = c1.getReciverData();
+
+	String uid=(String)session.getAttribute("uid");
+	System.out.println(uid);
+
+
+
+	ArrayList<ReceiverInfo> arr = c1.getReciverData(uid);
 	//RSA rsa = new RSA();
 	AES_ENCRYPTION aes = new AES_ENCRYPTION();
 	//aes.init();

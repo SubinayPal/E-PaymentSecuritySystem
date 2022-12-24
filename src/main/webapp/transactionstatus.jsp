@@ -5,6 +5,11 @@
 <%@ page import="p1.*" %>
 <%
 	Connect c1=new Connect();
+
+	String uid=(String)session.getAttribute("uid");
+	System.out.println(uid);
+
+
 	//RSA rsa = new RSA();
 	AES_ENCRYPTION aes = new AES_ENCRYPTION();
 	/*aes.init();*/
@@ -28,7 +33,7 @@
 	
 	/*String key = aes.getKey();
 	boolean b=c1.saveReceiverRecord(tid, accountnumber, hname, phonenumber, email, date, amount, key);*/
-	boolean b=c1.saveReceiverRecord(tid, accountnumber, hname, phonenumber, email, date, amount);
+	boolean b=c1.saveReceiverRecord(tid, accountnumber, hname, phonenumber, email, date, amount, uid);
 	
 	
 %>

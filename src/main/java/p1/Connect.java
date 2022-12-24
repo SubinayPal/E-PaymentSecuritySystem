@@ -57,14 +57,14 @@ public class Connect {
 	}
 	
 	
-	public boolean saveReceiverRecord(String tid, String accountnumber, String hname, String phonenumber, String email, String date, String amount)
+	public boolean saveReceiverRecord(String tid, String accountnumber, String hname, String phonenumber, String email, String date, String amount, String uid)
 	{
 		boolean b = false;
 		try {
 			//System.out.println("key="+key);
 			
 			/*String sql = "insert into tbl_receiver_info(tid, accountnumber, hname, phonenumber, email, date, amount, skey) values(?,?,?,?,?,?,?,?)";*/
-			String sql = "insert into tbl_receiver_info(tid, accountnumber, hname, phonenumber, email, date, amount) values(?,?,?,?,?,?,?)";
+			String sql = "insert into tbl_receiver_info(tid, accountnumber, hname, phonenumber, email, date, amount, uid) values(?,?,?,?,?,?,?,?)";
 			//String sql = "insert into tbl_receiver_info(skey,tid) values(?,?)";
 			ps=con.prepareStatement(sql);
 			ps.setString(1, tid);
@@ -74,7 +74,7 @@ public class Connect {
 			ps.setString(5, email);
 			ps.setString(6, date);
 			ps.setString(7, amount);
-			//ps.setString(8, key);
+			ps.setString(8, uid);
 			
 			int n = ps.executeUpdate();
 			if(n>0)
@@ -86,12 +86,13 @@ public class Connect {
 		return b;
 		
 	}	
-	public ArrayList<ReceiverInfo> getReciverData()
+	public ArrayList<ReceiverInfo> getReciverData(String uid)
 	{
 		ArrayList<ReceiverInfo> arr=new ArrayList<ReceiverInfo>();
 		try {
-		String sql="SELECT * FROM tbl_receiver_info";
+		String sql="SELECT * FROM tbl_receiver_info where uid=?";
 		ps=con.prepareStatement(sql);
+		ps.setString(1, uid);
 		rs=ps.executeQuery();
 		while(rs.next())
 		{

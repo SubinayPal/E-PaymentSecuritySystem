@@ -3,6 +3,9 @@
     
 <%@ page import="java.sql.Timestamp" import="java.time.Instant" %>
 <% Timestamp ts1 = Timestamp.from(Instant.now());  
+
+	String uid=(String)session.getAttribute("uid");
+	//System.out.println(uid);
    
    //System.out.println("Timestamp : "+ts1);
 %>   
@@ -272,6 +275,22 @@ body{
                  placeholder="xxx" />
         </div>
    -->   
+   
+   
+   <div class="transaction-id">
+          <label> User Id. </label>
+          <input
+            type="text"
+            class="user-id-field"
+            value="<%=uid %>" readonly
+            name="tid"
+            
+            />
+            
+        </div>
+   
+   
+   
         <button type="submit" 
                 class="submit-now-btn">
           Transfer
